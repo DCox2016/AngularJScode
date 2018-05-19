@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html ng-app="githubViewer">
 
-  <head>
-    <script data-require="angular.js@1.3.0-beta.5" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-  </head>
+<head>
+  <script data-require="angular.js@1.3.0-beta.5" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
 
-  <body ng-controller="MainCtrl">
-    <h1>{{message}}</h1>
-    
-    <div>{{error}}</div>
+<body ng-controller="MainCtrl">
+  <h1>{{message}}</h1>
 
-    <form name="searchUser" ng-submit="search(username)">
-      <input type="search" placeholder="User's name" ng-model="username" />
-      <input type="submit" placehollder="Search">
-    </form>
-    
-    <div>
-      <h2>{{user.name}}</h2>
-      <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
-    </div>
+  <div>{{error}}</div>
+
+  <form name="searchUser" ng-submit="search(username)">
+    <input type="search" placeholder="User's name" ng-model="username" />
+    <input type="submit" placehollder="Search">
+  </form>
   
-  </body>
+  <div ng-include="'sortuser.html'" ng-show="user"></div>
+  
+</body>
 
 </html>
