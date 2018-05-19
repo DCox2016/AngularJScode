@@ -13,10 +13,13 @@
       n.error = "Could not find that user.";
     };
 
-    $http.get("https://api.github.com/users/dcox2016")
+    n.search = function(username) {
+    $http.get("https://api.github.com/users/" + username)
       .then(onUserComplete, onError);
+    };  
 
-    n.message = "Hello, Angular!";
+    n.username = ""
+    n.message = "Github Profile Viewer";
 
   };
   

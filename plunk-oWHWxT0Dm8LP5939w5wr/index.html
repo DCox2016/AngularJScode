@@ -10,22 +10,18 @@
   <body ng-controller="MainCtrl">
     <h1>{{message}}</h1>
     
-    <div>
-      {{error}}
-    </div>
+    <div>{{error}}</div>
+
+    <form name="searchUser" ng-submit="search(username)">
+      <input type="search" placeholder="User's name" ng-model="username" />
+      <input type="submit" placehollder="Search">
+    </form>
     
     <div>
-      <div>
-      Name: {{user.name}}
-      </div>
-      <div>
-      Location: {{user.location}}  
-      </div>
-      <div>
-        <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
-      </div>
-      
+      <h2>{{user.name}}</h2>
+      <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
     </div>
+  
   </body>
 
 </html>
