@@ -25,19 +25,24 @@
         n.search(n.username);
       }
     };
-    
+    var countdownInterval = null;
     var startCountdown = function(){
-      $interval(searchTimer, 1000, n.countdown);
+      countdownInterval- $interval(searchTimer, 1000, n.countdown);
     };
 
     n.search = function(username) {
       $http.get("https://api.github.com/users/" + username)
         .then(onUserComplete, onError);
+        if(countdownInterval)
+        $interval.cancel(countdownIntervel);
+        n.countdown = null;
+        n.afterCountdown = null;
     };
 
     n.username = ""
     n.message = "Github Profile Viewer";
     n.repoSortOrder = "+name";
+    n.afterCountdown = " : until auto search excutes."
     n.countdown = 10;
     startCountdown();
 
